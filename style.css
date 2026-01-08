@@ -1,38 +1,73 @@
-/* --- VARIABLES --- */
+/* --- 1. VARIABLES Y COLORES (EL CEREBRO DEL MODO CLARO/OSCURO) --- */
+
+/* MODO CLARO (Por defecto) */
 :root {
-    --bg: #F2F2F7; /* Color Claro para Modo Claro */
-    --card-bg: #FFFFFF; --text: #1C1C1E; --text-secondary: #8E8E93;
-    --title: #000000; --border: #E5E5EA; --gold: #C5A059; --blue: #00366E;
-    --green: #27AE60; --red: #C0392B; --dark-header: #000000;
-    --nav-bg: rgba(255, 255, 255, 0.95); --nav-border: rgba(0,0,0,0.1);
-    --nav-text: #8E8E93; --nav-active: #000000;
-    --calc-bg: #000000; --calc-input: #222222;
+    --bg: #F2F2F7;             /* Fondo gris muy claro estilo iOS */
+    --card-bg: #FFFFFF;        /* Tarjetas blancas */
+    --text: #1C1C1E;           /* Texto casi negro */
+    --text-secondary: #8E8E93; /* Texto secundario gris */
+    --title: #000000;          /* Títulos negros */
+    --border: #E5E5EA;         /* Bordes suaves */
+    
+    --gold: #C5A059;           /* Dorado de marca */
+    --blue: #00366E;           /* Azul Boca */
+    --green: #27AE60;          /* Verde Dólar */
+    --red: #C0392B;            /* Rojo Alerta */
+    
+    --dark-header: #000000;    /* El header con video siempre es oscuro */
+    
+    --nav-bg: rgba(255, 255, 255, 0.95); /* Barra navegación blanca translúcida */
+    --nav-border: rgba(0,0,0,0.1);
+    --nav-text: #8E8E93;
+    --nav-active: #000000;
+    
+    --calc-bg: #000000;        /* Calculadora siempre oscura para contraste */
+    --calc-input: #222222;
 }
+
+/* MODO OSCURO (Automático) */
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #000000; /* Color Negro para Modo Oscuro */
-        --card-bg: #1C1C1E; --text: #FFFFFF; --text-secondary: #98989D;
-        --title: #FFFFFF; --border: #38383A; --blue: #0A84FF; --green: #30D158;
-        --gold: #D4AF37; --nav-bg: rgba(28, 28, 30, 0.95);
-        --nav-border: rgba(255,255,255,0.1); --nav-text: #636366; --nav-active: #FFFFFF;
-        --calc-bg: #1C1C1E; --calc-input: #2C2C2E;
+        --bg: #000000;
+        --card-bg: #1C1C1E;
+        --text: #FFFFFF;
+        --text-secondary: #98989D;
+        --title: #FFFFFF;
+        --border: #38383A;
+        
+        --blue: #0A84FF;       /* Azul más brillante para modo oscuro */
+        --green: #30D158;      /* Verde más brillante */
+        --gold: #D4AF37;
+        
+        --nav-bg: rgba(28, 28, 30, 0.95);
+        --nav-border: rgba(255,255,255,0.1);
+        --nav-text: #636366;
+        --nav-active: #FFFFFF;
+        
+        --calc-bg: #1C1C1E;
+        --calc-input: #2C2C2E;
     }
 }
 
 html { scroll-behavior: smooth; }
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: var(--bg); color: var(--text); margin: 0; padding: 0; line-height: 1.5;
+    background-color: var(--bg); 
+    color: var(--text); 
+    margin: 0; padding: 0; line-height: 1.5;
+    /* Respetar áreas seguras del iPhone (Notch) */
     padding-top: max(80px, env(safe-area-inset-top) + 20px);
     padding-bottom: max(80px, env(safe-area-inset-bottom) + 20px);
-    -webkit-font-smoothing: antialiased; transition: background 0.3s, color 0.3s;
+    -webkit-font-smoothing: antialiased; 
+    transition: background 0.3s, color 0.3s;
     overflow-x: hidden;
 }
 
-/* --- LANDING PAGE STYLES --- */
+/* --- 2. LANDING PAGE --- */
 #landing-page {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    z-index: 9999; background: #000;
+    z-index: 9999; background: #000; /* Siempre negro la intro */
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     text-align: center; 
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -61,9 +96,7 @@ body {
     letter-spacing: 2px; opacity: 0.9; margin: 0 0 25px 0; font-weight: 600;
 }
 
-.countdown-container {
-    display: flex; gap: 20px; color: #FFFFFF; margin-bottom: 40px; 
-}
+.countdown-container { display: flex; gap: 20px; color: #FFFFFF; margin-bottom: 40px; }
 .time-box { text-align: center; }
 .time-num { font-size: 2.2rem; font-weight: 800; display: block; line-height: 1; font-variant-numeric: tabular-nums; }
 .time-label { font-size: 0.6rem; text-transform: uppercase; opacity: 0.6; letter-spacing: 1px; margin-top: 5px; display: block;}
@@ -79,14 +112,13 @@ body {
     box-shadow: 0 0 30px rgba(197, 160, 89, 0.5); transform: scale(1.05);
 }
 
-/* --- APP CONTENT & ANIMACIONES --- */
+/* --- 3. APP CONTENT & ANIMACIONES --- */
 #app-content { display: none; opacity: 0; transition: opacity 1s ease; }
 #app-content.visible { display: block; opacity: 1; }
 
 .tab-content { display: none; animation: none; }
 .tab-content.active-tab { display: block; }
 
-/* Animaciones Slide */
 .slide-in-right { animation: slideRight 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
 .slide-in-left { animation: slideLeft 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
 
@@ -94,14 +126,14 @@ body {
 @keyframes slideLeft { 0% { opacity: 0; transform: translateX(-30px); } 100% { opacity: 1; transform: translateX(0); } }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-/* --- NAVBAR --- */
+/* --- 4. NAVBAR --- */
 .navbar { position: fixed; top: 0; width: 100%; background-color: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 1000; border-bottom: 1px solid var(--nav-border); display: flex; justify-content: center; padding-top: env(safe-area-inset-top); }
 .nav-container { display: flex; justify-content: space-between; width: 100%; max-width: 850px; padding: 0 5px; }
 .nav-btn { background: none; border: none; color: var(--nav-text); padding: 15px 5px; font-family: 'Inter', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 0.65rem; letter-spacing: 0.05em; cursor: pointer; transition: all 0.2s ease; border-bottom: 2px solid transparent; white-space: nowrap; flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; }
 .nav-btn.active { color: var(--nav-active); border-bottom: 2px solid var(--nav-active); }
 .nav-btn i { font-size: 1.1rem; }
 
-/* --- HEADER --- */
+/* --- 5. HEADER (Siempre oscuro para que se vea el texto blanco) --- */
 header { position: relative; background-color: var(--dark-header); color: #FFFFFF; padding: 80px 20px 50px; text-align: center; margin-bottom: 30px; overflow: hidden; }
 .header-video, .header-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; pointer-events: none; opacity: 0.8; }
 .header-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)); z-index: 1; }
@@ -110,14 +142,14 @@ header h1 { color: #FFFFFF; font-size: 2.5rem; letter-spacing: -2px; margin-bott
 header .role { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: #FFFFFF; font-weight: 600; opacity: 0.8; }
 .header-desc { font-size: 0.9rem; font-weight: 400; opacity: 0.9; margin-top: 5px; color: #eee; max-width: 600px; margin-left: auto; margin-right: auto; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
 
-/* --- GENERAL & CARDS --- */
+/* --- 6. CONTENEDORES Y TEXTOS --- */
 .container { max-width: 850px; margin: 0 auto; padding: 0 20px; }
 .section-title { text-align: center; margin: 40px 0 25px 0; position: relative; }
 .section-title span { background: var(--bg); padding: 0 15px; position: relative; z-index: 1; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--text-secondary); transition: background-color 0.3s; }
 .section-title::before { content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: var(--border); z-index: 0; }
 .section-desc { text-align: center; font-size: 0.75rem; color: var(--text-secondary); margin-top: -15px; margin-bottom: 25px; font-style: italic; opacity: 0.8; padding: 0 20px; }
 
-/* --- DAY ITEMS CON LOCATION TAG --- */
+/* --- 7. TARJETAS DE DÍA (ITINERARIO) --- */
 .day-item { display: flex; margin-bottom: 15px; align-items: stretch; }
 .day-date { flex: 0 0 50px; text-align: right; padding-right: 15px; padding-top: 5px; }
 .day-date .num { font-size: 1.4rem; font-weight: 800; display: block; line-height: 1; letter-spacing: -1px; color: var(--text); }
@@ -129,26 +161,14 @@ header .role { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase
     border-radius: 0 4px 4px 0; 
     position: relative; 
 }
-
-/* ETIQUETA DE UBICACIÓN */
 .location-tag {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    font-size: 0.55rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 3px 8px;
-    border-radius: 4px;
-    background-color: rgba(0,0,0,0.05);
-    color: var(--text-secondary);
-    border: 1px solid var(--border);
+    position: absolute; top: 12px; right: 12px;
+    font-size: 0.55rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
+    padding: 3px 8px; border-radius: 4px;
+    background-color: rgba(0,0,0,0.05); color: var(--text-secondary); border: 1px solid var(--border);
     display: flex; align-items: center; gap: 4px;
 }
-@media (prefers-color-scheme: dark) {
-    .location-tag { background-color: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.1); color: #aaa; }
-}
+@media (prefers-color-scheme: dark) { .location-tag { background-color: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.1); color: #aaa; } }
 
 .match-day .day-content { border-left: 3px solid var(--blue); background: color-mix(in srgb, var(--blue) 5%, var(--card-bg)); } 
 .match-day .day-date .num { color: var(--blue); }
@@ -157,7 +177,7 @@ ul.activities { list-style: none; padding: 0; font-size: 0.85rem; margin: 0; col
 ul.activities li { margin-bottom: 6px; display: flex; align-items: flex-start; }
 ul.activities li i { color: var(--gold); width: 20px; margin-top: 3px; flex-shrink: 0; font-size: 0.75rem; }
 
-/* --- LOGISTICS NAV --- */
+/* --- 8. OTROS COMPONENTES --- */
 .logistics { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 40px; margin-top: -30px; overflow-x: auto; padding-bottom: 5px; scrollbar-width: none; }
 .logistics::-webkit-scrollbar { display: none; }
 .log-link { flex: 1; text-decoration: none; color: inherit; display: block; min-width: 0; }
@@ -165,14 +185,16 @@ ul.activities li i { color: var(--gold); width: 20px; margin-top: 3px; flex-shri
 .log-card:active { transform: scale(0.98); }
 .log-card span { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; color: var(--text); letter-spacing: 1px; }
 
-/* --- OTHER COMPONENTS --- */
 .finance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; margin-top: -30px; }
 .finance-card { background: var(--card-bg); padding: 15px; text-align: center; border-radius: 4px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-top: 3px solid var(--green); }
 .currency-value { font-size: 1.8rem; font-weight: 800; color: var(--title); letter-spacing: -1px; margin: 5px 0; }
 .currency-title { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; color: var(--text-secondary); }
+
 .calc-box { background: var(--calc-bg); color: white; padding: 20px; border-radius: 4px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid var(--border); }
 .calc-input { width: 100%; background: var(--calc-input); border: 1px solid var(--border); color: white; padding: 12px; font-size: 1.2rem; font-weight: 800; border-radius: 4px; margin-top: 5px; box-sizing: border-box; -webkit-appearance: none; }
+
 .sos-btn { background: color-mix(in srgb, var(--red) 10%, var(--card-bg)); color: var(--red); text-decoration: none; padding: 12px; text-align: center; border-radius: 4px; font-weight: 700; font-size: 0.75rem; border: 1px solid rgba(192, 57, 43, 0.3); display: block; margin-bottom: 10px; transition: background 0.2s; }
+
 .guides-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); gap: 20px; }
 .city-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; }
 .city-img-strip { height: 100px; background-size: cover; background-position: center; filter: grayscale(20%); }
@@ -185,6 +207,7 @@ ul.activities li i { color: var(--gold); width: 20px; margin-top: 3px; flex-shri
 .city-footer { background: var(--bg); padding: 12px 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
 .budget-tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--text-secondary); }
 .budget-amount { font-size: 0.9rem; font-weight: 800; color: var(--green); }
+
 .transport-card, .hotel-card { background: var(--card-bg); border-radius: 4px; overflow: hidden; margin-bottom: 15px; border: 1px solid var(--border); }
 .transport-header { background: var(--bg); padding: 10px 15px; font-size: 0.7rem; font-weight: 700; color: var(--text-secondary); display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); }
 .transport-body { padding: 20px 15px; display: flex; align-items: center; justify-content: space-between; text-align: left; }
@@ -193,24 +216,29 @@ ul.activities li i { color: var(--gold); width: 20px; margin-top: 3px; flex-shri
 .route-code { font-size: 0.65rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; margin-top: 3px; display: block; }
 .route-arrow { color: var(--gold); font-size: 1.2rem; padding: 0 10px; }
 .btn-action { font-size: 0.7rem; font-weight: 700; text-decoration: none; color: var(--title); border: 1px solid var(--border); padding: 8px 12px; border-radius: 4px; text-transform: uppercase; margin: 15px; display: block; text-align: center; background: var(--bg); }
+
 .hotel-img { height: 120px; background-color: #333; background-size: cover; background-position: center; position: relative; }
 .hotel-badge { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); color: white; padding: 4px 8px; font-size: 0.6rem; font-weight: 700; border-radius: 3px; backdrop-filter: blur(4px); }
 .hotel-info { padding: 15px; }
 .hotel-info h3 { font-size: 1rem; margin: 0 0 5px 0; font-weight: 700; color: var(--title); }
 .hotel-dates { font-size: 0.75rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; }
+
 .map-card { background: var(--card-bg) !important; padding: 20px; border-radius: 4px; border: 1px solid var(--border) !important; }
 .gps-input { width: 100%; padding: 15px; border: 1px solid var(--border); border-radius: 4px; font-size: 1rem; box-sizing: border-box; margin-bottom: 10px; font-family: 'Inter', sans-serif; -webkit-appearance: none; background: var(--bg); color: var(--title); }
 .gps-btn { width: 100%; background: var(--title); color: var(--bg); border: none; padding: 15px; font-weight: 700; font-size: 0.9rem; border-radius: 4px; -webkit-appearance: none; }
 .gps-btn:active { opacity: 0.9; transform: scale(0.99); }
+
 .whatsapp-btn { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background-color: #25D366; color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 2000; text-decoration: none; transition: transform 0.2s; display: none; animation: pulse 2s infinite; }
 .whatsapp-btn.visible { display: flex; }
 .whatsapp-btn:active { transform: scale(0.9); }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
 .clock-container { background: var(--card-bg); margin: 0 auto 20px; max-width: 850px; display: flex; justify-content: space-evenly; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--border); border-top: 1px solid var(--border); }
 .clock-box { text-align: center; }
 .clock-label { display: block; font-size: 0.6rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 2px; }
 .clock-time { font-size: 1.5rem; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -1px; }
 .clock-divider { height: 30px; width: 1px; background: var(--border); }
+
 .checklist-box { background: var(--card-bg); border-radius: 4px; margin-bottom: 20px; border: 1px solid var(--border); overflow: hidden; }
 .checklist-header { padding: 15px; background: var(--bg); display: flex; justify-content: space-between; align-items: center; cursor: pointer; border-bottom: 1px solid var(--border); }
 .checklist-header h3 { font-size: 0.9rem; margin: 0; display: flex; align-items: center; gap: 8px; color: var(--title); }
@@ -219,15 +247,19 @@ ul.activities li i { color: var(--gold); width: 20px; margin-top: 3px; flex-shri
 .check-item:last-child { border-bottom: none; }
 .check-item input { margin-right: 15px; transform: scale(1.3); accent-color: var(--gold); }
 .check-item input:checked + span { text-decoration: line-through; color: var(--text-secondary); opacity: 0.6; }
+
 .slang-card { background: var(--dark-header); color: white; border-radius: 8px; padding: 25px; text-align: center; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
 .slang-header { font-size: 0.6rem; letter-spacing: 2px; opacity: 0.7; margin-bottom: 15px; font-weight: 700; }
 .slang-content h2 { font-size: 2rem; color: var(--gold); margin: 0 0 10px 0; }
 .slang-content p { font-size: 0.9rem; opacity: 0.9; font-style: italic; line-height: 1.4; margin-bottom: 20px; }
 .slang-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 10px 20px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
 .slang-btn:active { background: var(--gold); color: black; }
+
 .spotify-container { margin-bottom: 30px; }
+
 .day-item.is-today { border: 2px solid var(--gold); border-radius: 8px; position: relative; transform: scale(1.02); box-shadow: 0 10px 25px rgba(0,0,0,0.1); z-index: 10; }
 .day-item.is-today::after { content: "HOY EN ARGENTINA"; position: absolute; top: -10px; right: 10px; background: var(--gold); color: black; font-size: 0.6rem; font-weight: 800; padding: 2px 8px; border-radius: 4px; }
+
 .quick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 30px; }
 .quick-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 15px 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; -webkit-appearance: none; }
 .quick-card:active { transform: scale(0.96); background-color: var(--bg); }
@@ -235,40 +267,40 @@ ul.activities li i { color: var(--gold); width: 20px; margin-top: 3px; flex-shri
 .q-info { display: flex; flex-direction: column; }
 .q-title { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 800; color: var(--title); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2; }
 .q-city { font-family: 'Inter', sans-serif; font-size: 0.55rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; margin-top: 3px; }
+
 @media (max-width: 600px) { .nav-btn span { font-size: 0.55rem; } .day-item { flex-direction: column; gap: 5px; } .day-date { text-align: left; display: flex; gap: 10px; align-items: baseline; } header h1 { font-size: 2.2rem; } }
 
-/* --- LOGO EN LANDING (INFERIOR - SIEMPRE BLANCO) --- */
+/* --- 9. LOGOS Y FOOTER --- */
+/* Logo en Landing (Blanco siempre) */
 .landing-logo-bottom {
     width: 180px; 
     height: auto;
     margin-top: 40px; 
     margin-bottom: 20px; 
-    /* Force White color no matter the SVG source */
     filter: brightness(0) invert(1) drop-shadow(0 4px 10px rgba(0,0,0,0.5));
 }
 
-/* --- FOOTER GLOBAL UNIFICADO (LOGO + LINK) --- */
+/* Logo en Footer (Adaptable) */
 .app-footer { text-align: center; padding: 40px 20px 80px; font-size: 0.7rem; color: var(--text-secondary); display: flex; flex-direction: column; align-items: center; gap: 20px; opacity: 0.9; }
 
-/* LOGO ADAPTATIVO */
 .adaptive-footer-logo {
     width: 180px;
     height: auto;
     transition: filter 0.3s ease;
 }
 
-/* MODO CLARO -> NEGRO */
+/* MODO CLARO -> Logo Negro */
 @media (prefers-color-scheme: light) {
     .adaptive-footer-logo {
-        filter: brightness(0); /* Black */
+        filter: brightness(0); 
         opacity: 0.8;
     }
 }
 
-/* MODO OSCURO -> BLANCO */
+/* MODO OSCURO -> Logo Blanco */
 @media (prefers-color-scheme: dark) {
     .adaptive-footer-logo {
-        filter: brightness(0) invert(1); /* White */
+        filter: brightness(0) invert(1);
         opacity: 0.9;
     }
 }
