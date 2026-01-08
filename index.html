@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Instant Travels Argentina</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Argentina 26">
+    <meta name="theme-color" content="#000000">
+    <meta name="background-color" content="#000000">
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="apple-touch-icon" href="logo-ios.png">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style> body { background-color: #000000; } </style>
+</head>
+<body>
+
+<div id="landing-page">
+    <video autoplay muted loop playsinline class="landing-video">
+        <source src="intro.mp4" type="video/mp4">
+    </video>
+    <div class="header-overlay"></div>
+    
+    <div class="landing-content">
+        <h1 class="landing-title" style="margin-top: 40px;">ARGENTINA 2026</h1>
+        <p class="landing-text-top">Faltan para el despegue</p>
+        
+        <div class="countdown-container">
+            <div class="time-box">
+                <span id="dias" class="time-num">0</span>
+                <span class="time-label">DÍAS</span>
+            </div>
+            <div class="time-box">
+                <span id="horas" class="time-num">0</span>
+                <span class="time-label">HS</span>
+            </div>
+            <div class="time-box">
+                <span id="mins" class="time-num">0</span>
+                <span class="time-label">MIN</span>
+            </div>
+        </div>
+
+        <button class="enter-btn" onclick="enterApp()">Comienza el viaje</button>
+
+        <img src="logo.svg" alt="Instante Trips and Tips" class="landing-logo-bottom">
+    </div>
+</div>
+
+<div id="app-content">
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="openTab('itinerario')"><i class="fas fa-list-ul"></i> <span>EL PLAN</span></button>
+            <button class="nav-btn" onclick="openTab('que-hacer')"><i class="fas fa-compass"></i> <span>LA POSTA</span></button>
+            <button class="nav-btn" onclick="openTab('trayectos')"><i class="fas fa-plane"></i> <span>AÉREOS</span></button>
+            <button class="nav-btn" onclick="openTab('hoteles')"><i class="fas fa-bed"></i> <span>LA BASE</span></button>
+            <button class="nav-btn" onclick="openTab('gps')"><i class="fas fa-location-arrow"></i> <span>UBICATE</span></button>
+        </div>
+    </nav>
+
+    <a href="https://wa.me/523111469700?text=Hola,%20necesito%20ayuda%20con%20el%20viaje" class="whatsapp-btn" id="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div id="itinerario" class="tab-content active-tab">
+        <header>
+            <video autoplay muted loop playsinline class="header-video">
+                <source src="video.mp4" type="video/mp4">
+            </video>
+            <div class="header-overlay"></div>
+            <div class="header-content-wrapper">
+                <div class="role">Instant Travels</div>
+                <h1>ARGENTINA</h1>
+                <div>03 - 17 NOV 2026</div>
+                <p class="header-desc">Del fuego del asado al silencio eterno de los glaciares.</p>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="logistics">
+                <a href="#etapa1" class="log-link"><div class="log-card"><span>PARTE 1</span></div></a>
+                <a href="#boca" class="log-link"><div class="log-card" style="border-bottom-color: var(--blue);"><span>BOCA</span></div></a>
+                <a href="#etapa2" class="log-link"><div class="log-card" style="border-bottom-color: var(--green);"><span>PATAGONIA</span></div></a>
+                <a href="#etapa3" class="log-link"><div class="log-card" style="border-bottom-color: var(--gold);"><span>FINAL</span></div></a>
+            </div>
+            
+            <div id="etapa1" class="section-title"><span>PARTE 1: ARRANQUE URBANO</span></div>
+            <p class="section-desc">Buenos Aires y Montevideo: Ritmo, río y cultura.</p>
+            
+            <div class="day-item" data-date="03">
+                <div class="day-date"><span class="num">03</span><span class="month">MAR</span></div>
+                <div class="day-content">
+                    <span class="location-tag"><i class="fas fa-map-pin"></i> BS.AS | PALERMO</span>
+                    <h3>Aterrizaje & Palermo Soho</h3>
+                    <ul class="activities">
+                        <li><i class="fas fa-plane-arrival"></i> 04:30 AM Llegada EZE & Check-in.</li>
+                        <li><i class="fas fa-shopping-bag"></i> Plaza Serrano: Diseño independiente.</li>
+                        <li><i class="fas fa-camera"></i> Arte urbano en Pasaje Santa Rosa.</li>
+                        <li><i class="fas fa-coffee"></i> Café de especialidad al atardecer.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-item" data-date="04">
+                <div class="day-date"><span class="num">04</span><span class="month">MIÉ</span></div>
+                <div class="day-content">
+                    <span class="location-tag"><i class="fas fa-map-pin"></i> BS.AS | PALERMO</span>
+                    <h3>Naturaleza & Arte Moderno</h3>
+                    <ul class="activities">
+                        <li><i class="fas fa-tree"></i> Bosques: El Rosedal (Puente Griego).</li>
+                        <li><i class="fas fa-torii-gate"></i> <strong>Jardín Japonés:</strong> Fotos Zen.</li>
+                        <li><i class="fas fa-paint-brush"></i> MALBA: Frida Kahlo & Tarsila.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-item" data-date="05">
+                <div class="day-date"><span class="num">05</span><span class="month">JUE</span></div>
+                <div class="day-content">
+                    <span class="location-tag"><i class="fas fa-map-pin"></i> URU | CIUDAD VIEJA</span>
+                    <h3>Montevideo Clásico</h3>
+                    <ul class="activities">
+                        <li><i class="fas fa-ship"></i> Ferry a Uruguay (2.5 hrs).</li>
+                        <li><i class="fas fa-drumstick-bite"></i> <strong>Mercado del Puerto:</strong> Parrilla.</li>
+                        <li><i class="fas fa-theater-masks"></i> Teatro Solís & Ciudad Vieja.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-item" data-date="06">
+                <div class="day-date"><span class="num">06</span><span class="month">VIE</span></div>
+                <div class="day-content">
+                    <span class="location-tag"><i class="fas fa-map-pin"></i> URU | POCITOS</span>
+                    <h3>Horizontes de Mar</h3>
+                    <ul class="activities">
+                        <li><i class="fas fa-water"></i> Caminata por La Rambla hasta Pocitos.</li>
+                        <li><i class="fas fa-leaf"></i> Relax en Parque Rodó.</li>
+                        <li><i class="fas fa-ship"></i> Ferry de vuelta al atardecer.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-item" data-date="07">
+                <div class="day-date"><span class="num">07</span><span class="month">SÁB</span></div>
+                <div class="day-content">
+                    <span class="location-tag"><i class="fas fa-map-pin"></i> BS.AS | SUR</span>
+                    <h3>Contrastes Porteños</h3>
+                    <ul class="activities">
+                        <li><i class="fas fa-palette"></i> <strong>La Boca:</strong> Caminito & Museo.</li>
+                        <li><i class="fas fa-building"></i> Pto. Madero & Puente de la Mujer.</li>
+                        <li><i class="fas fa-mug-hot"></i> Café Tortoni (Bar Notable).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-item match-day" id="boca" data-date="08">
+                <div class="day-date"><span class="num">08</span><span class="month">DOM</span></div>
+                <div class="day-content">
+                    <span class="location-tag"><i class="fas fa-map-pin"></i> BS.AS | CENTRO</span>
+                    <h3>FÚTBOL SAGRADO</h3>
+                    <ul class="activities">
+                        <li><i class="fas fa-road"></i> Calle Corrientes & Obelisco.</li>
+                        <li><i class="fas fa-pizza-slice"></i> Pizza porteña al paso.</li>
+                        <li><i class="fas fa-fire" style="color: var(--blue);"></i> <strong>LA BOMBONERA: MATCH DAY.</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="etapa2" class="section-title"><span>PARTE 2: PATAGONIA AUSTRAL</span></div>
+            <p class="section-desc">Donde el viento manda y las montañas tocan el cielo.</p>
+
+            <div class="day-item" data-date="09">
+                <div class="day-date"><span class="num">09</span><span class="month">LUN</span></div>
+                <div class="day-content">
+                    <span class="location-tag"><i class="fas fa-map-pin"></i> PAT | EL CALAFATE</span>
+                    <h3>Aterrizando en la Estepa</h3>
+                    <ul class="activities">
+                        <li><i class="fas fa-plane"></i> Vuelo a El Calafate.</li>
+                        <li><i class="fas fa-store"></i> Centro: Chocolates & Artesanías.</li>
+                        <li><i class="fas fa-wind"></i> Adaptación al clima seco.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-item" data-date="10">
+                <div class="day-date"><span class="num">10</span><span class="month">MAR</span></div>
+                <div class="day-content">
+                    <span class="location-tag"><i class="fas fa-map-pin"></i> PAT | GLACIAR</span>
+                    <h3>El Gigante de Hielo</h3>
+                    <ul class="activities">
+                        <li><i class="fas fa-icicles"></i> <strong>Full Day Perito Moreno.</strong></li>
+                        <li><i class="fas fa-camera"></i> Pasarelas: Rupturas de hielo.</li>
+                        <li><i class="fas fa-ship"></i> Navegación frente al glaciar.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-item" data-date="11">
+                <div class="day-date"><span class="num">11</span><span class="month">MIÉ</span></div>
+                <div class="day-content">
+                    <span class="location-tag"><i class="fas fa-map-pin"></i> PAT | RUTA 40</span>
+                    <h3>Ruta a la Montaña</h3>
+                    <ul class="activities">
+                        <li><i class="fas fa-bus"></i> Ruta 40 hacia El Chaltén.</li>
+                        <li><i class="fas fa-binoculars"></i> Vistas del macizo Fitz Roy.</li>
+                        <li><i class="fas fa-hiking"></i> Trekking corto: Mirador Cóndores.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-item" data-date="12">
+                <div class="day-date"><span class="num">12</span><span class="month">JUE</span></div>
+                <div class="day-content">
+                    <span class="location-tag"><i class="fas fa-map-pin"></i> PAT | FITZ ROY</span>
+                    <h3>El Desafío: Fitz Roy</h3>
+                    <ul class="activities">
+                        <li><i class="fas fa-mountain"></i> <strong>Trek Laguna de los Tres.</strong></li>
+                        <li><i class="fas fa-heartbeat"></i> Dificultad: Alta (Recompensa visual).</li>
+                        <li><i class="fas fa-tint"></i> Laguna Turquesa & Agujas de granito.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-item" data-date="13">
+                <div class="day-date"><span class="num">13</span><span class="month">VIE</span></div>
+                <div class="day-content">
+                    <span class="location-tag"><i class="fas fa-map-pin"></i> PAT | EL CHALTÉN</span>
+                    <h3>Desconexión & Bosque</h3>
+                    <ul class="activities">
+                        <li><i class="fas fa-tree"></i> Caminata suave: Chorrillo del Salto.</li>
+                        <li><i class="fas fa-beer"></i> Cerveza artesanal & Guiso.</li>
+                        <li><i class="fas fa-spa"></i> Recuperación de piernas.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-item" data-date="14">
+                <div class="day-date"><span class="num">14</span><span class="month">SÁB</span></div>
+                <div class="day-content">
+                    <span class="location-tag"><i class="fas fa-map-pin"></i> PAT | REGRESO</span>
+                    <h3>Regreso a la Civilización</h3>
+                    <ul class="activities">
+                        <li><i class="fas fa-bus"></i> Transfer al Aeropuerto FTE.</li>
+                        <li><i class="fas fa-plane"></i> Vuelo regreso a Buenos Aires.</li>
+                        <li><i class="fas fa-bed"></i> Noche de descanso urbano.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="etapa3" class="section-title"><span>PARTE 3: FINAL ELEGANTE</span></div>
+            <p class="section-desc">Antigüedades, aristocracia y la despedida perfecta.</p>
+
+            <div class="day-item" data-date="15">
+                <div class="day-date"><span class="num">15</span><span class="month">DOM</span></div>
+                <div class="day-content">
+                    <span class="location-tag"><i class="fas fa-map-pin"></i> BS.AS | SAN TELMO</span>
+                    <h3>Tango en San Telmo</h3>
+                    <ul class="activities">
+                        <li><i class="fas fa-store-alt"></i> Feria de la calle Defensa.</li>
+                        <li><i class="fas fa-utensils"></i> Mercado de San Telmo (Tapas).</li>
+                        <li><i class="fas fa-music"></i> Tango en Plaza Dorrego.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-item" data-date="16">
+                <div class="day-date"><span class="num">16</span><span class="month">LUN</span></div>
+                <div class="day-content">
+                    <span class="location-tag"><i class="fas fa-map-pin"></i> BS.AS | RECOLETA</span>
+                    <h3>La París de Sudamérica</h3>
+                    <ul class="activities">
+                        <li><i class="fas fa-monument"></i> Cementerio Recoleta & Floralis.</li>
+                        <li><i class="fas fa-star"></i> Galerías Pacífico (Cúpula).</li>
+                        <li><i class="fas fa-wine-glass"></i> Compras: Malbec & Alfajores.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-item" data-date="17">
+                <div class="day-date"><span class="num">17</span><span class="month">MAR</span></div>
+                <div class="day-content">
+                    <span class="location-tag"><i class="fas fa-map-pin"></i> BS.AS | EZEIZA</span>
+                    <h3>La Despedida</h3>
+                    <ul class="activities">
+                        <li><i class="fas fa-coffee"></i> Último desayuno porteño.</li>
+                        <li><i class="fas fa-suitcase"></i> Check-out & Transfer Ezeiza.</li>
+                        <li><i class="fas fa-plane-departure"></i> <strong>Regreso a CDMX.</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="spotify-container">
+                <div class="section-title"><span>MOOD: ROCK & TANGO</span></div>
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6xRAfQHDGiv4k8VcUhWysk?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+
+            <footer class="app-footer">
+                <img src="logo.svg" alt="Instante Trips and Tips" class="adaptive-footer-logo">
+                <a href="legales.html" class="legal-link">Términos y Responsabilidad</a>
+            </footer>
+        </div>
+    </div>
+
+    <div id="que-hacer" class="tab-content">
+        <header>
+            <img src="patagonia.jpg" class="header-img" alt="La Posta">
+            <div class="header-overlay"></div>
+            <div class="header-content-wrapper">
+                <h1>LA POSTA</h1>
+                <div class="role">Data Clave</div>
+                <p class="header-desc">La data real: cambio, seguridad y tips.</p>
+            </div>
+        </header>
+        
+        <div class="clock-container">
+            <div class="clock-box">
+                <span class="clock-label">CDMX (MX)</span>
+                <span id="time-mx" class="clock-time">--:--</span>
+            </div>
+            <div class="clock-divider"></div>
+            <div class="clock-box">
+                <span class="clock-label">BS.AS (AR)</span>
+                <span id="time-ar" class="clock-time" style="color: var(--blue);">--:--</span>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="finance-grid">
+                <div class="finance-card">
+                    <span class="currency-title">DÓLAR BLUE</span>
+                    <div id="dolar-value" class="currency-value">...</div>
+                </div>
+                <div class="finance-card">
+                    <span class="currency-title">PESO URU</span>
+                    <div class="currency-value">$42.5</div>
+                </div>
+            </div>
+
+            <div class="checklist-box">
+                <div class="checklist-header" onclick="toggleChecklist()">
+                    <h3><i class="fas fa-suitcase"></i> CHECKLIST PATAGONIA</h3>
+                    <i class="fas fa-chevron-down" id="check-arrow"></i>
+                </div>
+                <div class="checklist-content" id="checklist-items">
+                    <label class="check-item"><input type="checkbox" id="chk_pasaporte"><span>Pasaporte Vigente</span></label>
+                    <label class="check-item"><input type="checkbox" id="chk_seguro"><span>Seguro Médico (Impreso)</span></label>
+                    <label class="check-item"><input type="checkbox" id="chk_adaptador"><span>Adaptador Tipo I (Arg)</span></label>
+                    <label class="check-item"><input type="checkbox" id="chk_efectivo"><span>Dólares (Billete 100 impecable)</span></label>
+                    <label class="check-item"><input type="checkbox" id="chk_trekking"><span>Botas de Trekking</span></label>
+                    <label class="check-item"><input type="checkbox" id="chk_termica"><span>Ropa Térmica (Capas)</span></label>
+                    <label class="check-item"><input type="checkbox" id="chk_cortaviento"><span>Campera Cortavientos</span></label>
+                    <label class="check-item"><input type="checkbox" id="chk_lentes"><span>Lentes de Sol (Glaciar)</span></label>
+                    <label class="check-item"><input type="checkbox" id="chk_crema"><span>Protector Solar</span></label>
+                    <label class="check-item"><input type="checkbox" id="chk_powerbank"><span>Powerbank (Batería)</span></label>
+                </div>
+            </div>
+
+            <div class="calc-box">
+                <h3 style="color: white; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; font-size: 0.9rem;">
+                    <i class="fas fa-calculator" style="color: var(--gold); margin-right: 8px;"></i> CONVERSOR RÁPIDO
+                </h3>
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div>
+                        <label style="font-size: 0.7rem; text-transform: uppercase; color: #888; font-weight: 700;">PRECIO ARGENTINO ($)</label>
+                        <input type="number" id="input-ars" placeholder="0" oninput="convertMoney()" class="calc-input">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div style="background: #222; padding: 10px; border-radius: 4px; text-align: center;">
+                            <span style="display: block; font-size: 0.6rem; color: #aaa;">USD</span>
+                            <span id="output-usd" style="font-size: 1.2rem; font-weight: 800; color: var(--green); display: block; margin-top: 5px;">-</span>
+                        </div>
+                        <div style="background: #222; padding: 10px; border-radius: 4px; text-align: center;">
+                            <span style="display: block; font-size: 0.6rem; color: #aaa;">MXN (Aprox)</span>
+                            <span id="output-mxn" style="font-size: 1.2rem; font-weight: 800; color: white; display: block; margin-top: 5px;">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-bottom: 40px;">
+                <div class="section-title" style="margin-top: 0;"><span>SOS RAPIDO</span></div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <a href="tel:911" class="sos-btn">911 POLICÍA</a>
+                    <a href="tel:107" class="sos-btn">107 SALUD</a>
+                </div>
+            </div>
+            <div class="section-title"><span>GUÍAS RÁPIDAS</span></div>
+            <div class="guides-grid">
+                <div class="city-card">
+                    <div class="city-img-strip" style="background-image: url('https://images.unsplash.com/photo-1589909202802-8f4aadce1849?q=80&w=1935&auto=format&fit=crop');"></div>
+                    <div class="city-body">
+                        <h3 class="city-title">Buenos Aires</h3>
+                        <div class="city-highlights"><h4>Highlights</h4><ul><li>Pizza en Guerrin</li><li>Teatro Colón</li><li>Floralis Genérica</li></ul></div>
+                    </div>
+                    <div class="city-footer"><span class="budget-tag">Diario Est.</span><span class="budget-amount">$50 USD</span></div>
+                </div>
+                <div class="city-card">
+                    <div class="city-img-strip" style="background-image: url('https://images.unsplash.com/photo-1569931727763-36307222fc57?q=80&w=2070&auto=format&fit=crop');"></div>
+                    <div class="city-body">
+                        <h3 class="city-title">Montevideo</h3>
+                        <div class="city-highlights"><h4>Highlights</h4><ul><li>Chivito Canadiense</li><li>Rambla (22km)</li><li>Mercado del Puerto</li></ul></div>
+                    </div>
+                    <div class="city-footer"><span class="budget-tag">Diario Est.</span><span class="budget-amount">$80 USD</span></div>
+                </div>
+                <div class="city-card">
+                    <div class="city-img-strip" style="background-image: url('https://images.unsplash.com/photo-1518182170546-0766be6f5a56?q=80&w=2070&auto=format&fit=crop');"></div>
+                    <div class="city-body">
+                        <h3 class="city-title">El Calafate</h3>
+                        <div class="city-highlights"><h4>Highlights</h4><ul><li>Glaciar Perito Moreno</li><li>Cordero Patagónico</li><li>Bar de Hielo</li></ul></div>
+                    </div>
+                    <div class="city-footer"><span class="budget-tag">Diario Est.</span><span class="budget-amount">$70 USD</span></div>
+                </div>
+                <div class="city-card">
+                    <div class="city-img-strip" style="background-image: url('https://images.unsplash.com/photo-1512595083758-193dbb775218?q=80&w=2070&auto=format&fit=crop');"></div>
+                    <div class="city-body">
+                        <h3 class="city-title">Ushuaia</h3>
+                        <div class="city-highlights"><h4>Highlights</h4><ul><li>Centolla (King Crab)</li><li>Sello Pasaporte</li><li>Ramos Generales</li></ul></div>
+                    </div>
+                    <div class="city-footer"><span class="budget-tag">Diario Est.</span><span class="budget-amount">$65 USD</span></div>
+                </div>
+            </div>
+
+            <div class="slang-card" style="margin-top: 30px;">
+                <div class="slang-header">DICCIONARIO EXPRESS</div>
+                <div class="slang-content">
+                    <h2 id="slang-word">Che</h2>
+                    <p id="slang-def">Vocativo universal. Sirve para llamar, saludar o enfatizar. "¡Che, boludo!"</p>
+                </div>
+                <button class="slang-btn" onclick="newSlang()"><i class="fas fa-random"></i> TIRAME OTRA DATA</button>
+            </div>
+            
+            <footer class="app-footer">
+                <img src="logo.svg" alt="Instante Trips and Tips" class="adaptive-footer-logo">
+                <a href="legales.html" class="legal-link">Términos y Responsabilidad</a>
+            </footer>
+        </div>
+    </div>
+
+    <div id="trayectos" class="tab-content">
+        <header>
+            <img src="aereos.jpg" class="header-img" alt="Aéreos">
+            <div class="header-overlay"></div>
+            <div class="header-content-wrapper">
+                <h1>AÉREOS</h1>
+                <div class="role">Logística</div>
+                <p class="header-desc">Billetes confirmados y horarios de vuelo.</p>
+            </div>
+        </header>
+        <div class="container">
+            
+            <div class="transport-card">
+                <div class="transport-header"><span>02 NOV • AR1373 (IDA)</span></div>
+                <div class="transport-body">
+                    <div class="route-point">
+                        <span class="route-city">CANCÚN</span>
+                        <span class="route-code">CUN • 17:50</span>
+                    </div>
+                    <div class="route-arrow"><i class="fas fa-plane"></i></div>
+                    <div class="route-point">
+                        <span class="route-city">BS.AS.</span>
+                        <span class="route-code">EZE • 04:30 (+2)</span>
+                    </div>
+                </div>
+                <a href="https://www.aerolineas.com.ar" target="_blank" class="btn-action">Check-in</a>
+            </div>
+
+            <div class="transport-card">
+                <div class="transport-header"><span>09 NOV • AR1285 (PATAGONIA)</span></div>
+                <div class="transport-body">
+                    <div class="route-point">
+                        <span class="route-city">BS.AS.</span>
+                        <span class="route-code">AEP • 09:20</span>
+                    </div>
+                    <div class="route-arrow"><i class="fas fa-plane"></i></div>
+                    <div class="route-point">
+                        <span class="route-city">CALAFATE</span>
+                        <span class="route-code">FTE • 12:40</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-action">Info</a>
+            </div>
+
+            <div class="transport-card" style="border-left-color: var(--gold);">
+                <div class="transport-header"><span>14 NOV • REGRESO AEP</span></div>
+                <div class="transport-body">
+                    <div class="route-point">
+                        <span class="route-city">CALAFATE</span>
+                        <span class="route-code">FTE • 13:30</span>
+                    </div>
+                    <div class="route-arrow"><i class="fas fa-plane"></i></div>
+                    <div class="route-point">
+                        <span class="route-city">BS.AS.</span>
+                        <span class="route-code">AEP • 15:30</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-action">Info</a>
+            </div>
+
+            <div class="transport-card">
+                <div class="transport-header"><span>17 NOV • AR1370 (VUELTA)</span></div>
+                <div class="transport-body">
+                    <div class="route-point">
+                        <span class="route-city">BS.AS.</span>
+                        <span class="route-code">EZE • 23:25</span>
+                    </div>
+                    <div class="route-arrow"><i class="fas fa-plane"></i></div>
+                    <div class="route-point">
+                        <span class="route-city">CANCÚN</span>
+                        <span class="route-code">CUN • 06:30 (+1)</span>
+                    </div>
+                </div>
+                <a href="https://www.aerolineas.com.ar" target="_blank" class="btn-action">Check-in</a>
+            </div>
+
+            <footer class="app-footer">
+                <img src="logo.svg" alt="Instante Trips and Tips" class="adaptive-footer-logo">
+                <a href="legales.html" class="legal-link">Términos y Responsabilidad</a>
+            </footer>
+        </div>
+    </div>
+
+    <div id="hoteles" class="tab-content">
+        <header>
+            <img src="labase.jpg" class="header-img" alt="La Base">
+            <div class="header-overlay"></div>
+            <div class="header-content-wrapper">
+                <h1>LA BASE</h1>
+                <div class="role">Descanso</div>
+                <p class="header-desc">Tu refugio estratégico en cada ciudad.</p>
+            </div>
+        </header>
+        <div class="container">
+            <div class="hotel-grid" style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                <div class="hotel-card">
+                    <div class="hotel-img" style="background-image: url('https://images.unsplash.com/photo-1596142756852-c62589e4c1cc?q=80&w=1956');"><span class="hotel-badge">03-04 NOV</span></div>
+                    <div class="hotel-info"><h3>BA (Inicio)</h3><div class="hotel-dates">Recoleta</div></div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-img" style="background-image: url('https://images.unsplash.com/photo-1555243403-162f280cb03b?q=80&w=2070');"><span class="hotel-badge">04-06 NOV</span></div>
+                    <div class="hotel-info"><h3>Montevideo</h3><div class="hotel-dates">Punta Carretas</div></div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-img" style="background-image: url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1980');"><span class="hotel-badge">06-09 NOV</span></div>
+                    <div class="hotel-info"><h3>BA (Central)</h3><div class="hotel-dates">Palermo Soho</div></div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-img" style="background-image: url('https://images.unsplash.com/photo-1518182170546-0766be6f5a56?q=80&w=2070');"><span class="hotel-badge">09-11 NOV</span></div>
+                    <div class="hotel-info"><h3>El Calafate</h3><div class="hotel-dates">Centro</div></div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-img" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070');"><span class="hotel-badge">11-13 NOV</span></div>
+                    <div class="hotel-info"><h3>El Chaltén</h3><div class="hotel-dates">Base Fitz Roy</div></div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-img" style="background-image: url('https://images.unsplash.com/photo-1549520442-998826f63435?q=80&w=2070');"><span class="hotel-badge">13-15 NOV</span></div>
+                    <div class="hotel-info"><h3>Ushuaia</h3><div class="hotel-dates">Centro</div></div>
+                </div>
+            </div>
+
+            <footer class="app-footer">
+                <img src="logo.svg" alt="Instante Trips and Tips" class="adaptive-footer-logo">
+                <a href="legales.html" class="legal-link">Términos y Responsabilidad</a>
+            </footer>
+        </div>
+    </div>
+
+    <div id="gps" class="tab-content">
+        <header>
+            <img src="ubicate.jpg" class="header-img" alt="Ubicate">
+            <div class="header-overlay"></div>
+            <div class="header-content-wrapper">
+                <h1>UBICATE</h1>
+                <div class="role">Mapas</div>
+                <p class="header-desc">Para que no termines caminando en círculos.</p>
+            </div>
+        </header>
+        <div class="container">
+            <div class="map-card">
+                <input type="text" id="dest-input" class="gps-input" placeholder="Escribe un destino (Ej. Obelisco)">
+                <button class="gps-btn" onclick="calculateRoute()">IR AHORA</button>
+            </div>
+
+            <div class="section-title" style="margin-top: 30px;"><span>PUNTOS DE INTERÉS</span></div>
+            <div class="quick-grid">
+                <button class="quick-card" onclick="quickNav('Casa Rosada, Buenos Aires')">
+                    <div class="q-icon"><i class="fas fa-landmark"></i></div>
+                    <div class="q-info">
+                        <span class="q-title">CASA ROSADA</span>
+                        <span class="q-city">Buenos Aires</span>
+                    </div>
+                </button>
+
+                <button class="quick-card" onclick="quickNav('Caminito, La Boca')">
+                    <div class="q-icon"><i class="fas fa-palette"></i></div>
+                    <div class="q-info">
+                        <span class="q-title">CAMINITO</span>
+                        <span class="q-city">La Boca</span>
+                    </div>
+                </button>
+
+                <button class="quick-card" onclick="quickNav('Puerto Madero, Buenos Aires')">
+                    <div class="q-icon"><i class="fas fa-building"></i></div>
+                    <div class="q-info">
+                        <span class="q-title">PTO. MADERO</span>
+                        <span class="q-city">Zona Cena</span>
+                    </div>
+                </button>
+
+                <button class="quick-card" onclick="quickNav('Mercado del Puerto, Montevideo')">
+                    <div class="q-icon"><i class="fas fa-utensils"></i></div>
+                    <div class="q-info">
+                        <span class="q-title">MERCADO PTO.</span>
+                        <span class="q-city">Montevideo</span>
+                    </div>
+                </button>
+
+                <button class="quick-card" onclick="quickNav('Glaciar Perito Moreno')">
+                    <div class="q-icon"><i class="fas fa-icicles"></i></div>
+                    <div class="q-info">
+                        <span class="q-title">P. MORENO</span>
+                        <span class="q-city">El Calafate</span>
+                    </div>
+                </button>
+
+                <button class="quick-card" onclick="quickNav('Sendero al Fitz Roy, El Chaltén')">
+                    <div class="q-icon"><i class="fas fa-mountain"></i></div>
+                    <div class="q-info">
+                        <span class="q-title">FITZ ROY</span>
+                        <span class="q-city">El Chaltén</span>
+                    </div>
+                </button>
+            </div>
+
+            <div class="section-title" style="margin-top: 30px;"><span>AEROPUERTOS</span></div>
+            <div class="quick-grid">
+                <a href="https://www.google.com/maps/search/?api=1&query=Aeropuerto+Internacional+Ezeiza" target="_blank" class="quick-card" style="text-decoration: none;">
+                    <div class="q-icon"><i class="fas fa-plane-arrival"></i></div>
+                    <div class="q-info"><span class="q-title">EZEIZA</span><span class="q-city">Intl. (EZE)</span></div>
+                </a>
+                
+                <a href="https://www.google.com/maps/search/?api=1&query=Aeroparque+Jorge+Newbery" target="_blank" class="quick-card" style="text-decoration: none;">
+                    <div class="q-icon"><i class="fas fa-plane"></i></div>
+                    <div class="q-info"><span class="q-title">AEROPARQUE</span><span class="q-city">Cabotaje (AEP)</span></div>
+                </a>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Aeropuerto+Internacional+Comandante+Armando+Tola" target="_blank" class="quick-card" style="text-decoration: none;">
+                    <div class="q-icon"><i class="fas fa-snowflake"></i></div>
+                    <div class="q-info"><span class="q-title">EL CALAFATE</span><span class="q-city">Patagonia (FTE)</span></div>
+                </a>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Aeropuerto+Internacional+Malvinas+Argentinas" target="_blank" class="quick-card" style="text-decoration: none;">
+                    <div class="q-icon"><i class="fas fa-anchor"></i></div>
+                    <div class="q-info"><span class="q-title">USHUAIA</span><span class="q-city">Fin del Mundo (USH)</span></div>
+                </a>
+            </div>
+
+            <footer class="app-footer">
+                <img src="logo.svg" alt="Instante Trips and Tips" class="adaptive-footer-logo">
+                <a href="legales.html" class="legal-link">Términos y Responsabilidad</a>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
