@@ -1,7 +1,8 @@
 {
   "name": "Argentina 2026",
   "short_name": "Argentina 26",
-  "start_url": "index.html",
+  "start_url": "/destinos_argentina/index.html",
+  "scope": "/destinos_argentina/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
