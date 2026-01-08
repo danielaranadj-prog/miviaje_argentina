@@ -191,7 +191,7 @@ ul.activities li i { color: var(--gold); width: 20px; margin-top: 3px; flex-shri
 .currency-title { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; color: var(--text-secondary); }
 
 .calc-box { background: var(--calc-bg); color: white; padding: 20px; border-radius: 4px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid var(--border); }
-.calc-input { width: 100%; background: var(--calc-input); border: 1px solid var(--border); color: white; padding: 12px; font-size: 1.2rem; font-weight: 800; border-radius: 4px; margin-top: 5px; box-sizing: border-box; -webkit-appearance: none; }
+.calc-input { width: 100%; background: var(--calc-input); border: 1px solid var(--border); color: white; padding: 12px; font-size: 1.2rem; font-weight: 800; border-radius: 4px; margin-top: 5px; box-sizing: border-box; -webkit-appearance: none; appearance: none; }
 
 .sos-btn { background: color-mix(in srgb, var(--red) 10%, var(--card-bg)); color: var(--red); text-decoration: none; padding: 12px; text-align: center; border-radius: 4px; font-weight: 700; font-size: 0.75rem; border: 1px solid rgba(192, 57, 43, 0.3); display: block; margin-bottom: 10px; transition: background 0.2s; }
 
@@ -224,8 +224,8 @@ ul.activities li i { color: var(--gold); width: 20px; margin-top: 3px; flex-shri
 .hotel-dates { font-size: 0.75rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; }
 
 .map-card { background: var(--card-bg) !important; padding: 20px; border-radius: 4px; border: 1px solid var(--border) !important; }
-.gps-input { width: 100%; padding: 15px; border: 1px solid var(--border); border-radius: 4px; font-size: 1rem; box-sizing: border-box; margin-bottom: 10px; font-family: 'Inter', sans-serif; -webkit-appearance: none; background: var(--bg); color: var(--title); }
-.gps-btn { width: 100%; background: var(--title); color: var(--bg); border: none; padding: 15px; font-weight: 700; font-size: 0.9rem; border-radius: 4px; -webkit-appearance: none; }
+.gps-input { width: 100%; padding: 15px; border: 1px solid var(--border); border-radius: 4px; font-size: 1rem; box-sizing: border-box; margin-bottom: 10px; font-family: 'Inter', sans-serif; -webkit-appearance: none; appearance: none; background: var(--bg); color: var(--title); }
+.gps-btn { width: 100%; background: var(--title); color: var(--bg); border: none; padding: 15px; font-weight: 700; font-size: 0.9rem; border-radius: 4px; -webkit-appearance: none; appearance: none; }
 .gps-btn:active { opacity: 0.9; transform: scale(0.99); }
 
 .whatsapp-btn { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background-color: #25D366; color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 2000; text-decoration: none; transition: transform 0.2s; display: none; animation: pulse 2s infinite; }
@@ -261,7 +261,7 @@ ul.activities li i { color: var(--gold); width: 20px; margin-top: 3px; flex-shri
 .day-item.is-today::after { content: "HOY EN ARGENTINA"; position: absolute; top: -10px; right: 10px; background: var(--gold); color: black; font-size: 0.6rem; font-weight: 800; padding: 2px 8px; border-radius: 4px; }
 
 .quick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 30px; }
-.quick-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 15px 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; -webkit-appearance: none; }
+.quick-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 15px 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; appearance: none; -webkit-appearance: none; }
 .quick-card:active { transform: scale(0.96); background-color: var(--bg); }
 .q-icon { font-size: 1.5rem; color: var(--gold); margin-bottom: 8px; }
 .q-info { display: flex; flex-direction: column; }
